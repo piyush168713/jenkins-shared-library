@@ -2,5 +2,5 @@
 
 def call(){
     echo "building the application..."
-    echo 'mvn package'
+    // echo 'mvn package'
 }
