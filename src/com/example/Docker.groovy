@@ -10,6 +10,20 @@ class Docker implements Serializable {
         this.script = script
     }
 
+    /*
+    def buildDockerImage(String imageName){
+        script.echo "building the docker image..."
+        script.withCredentials([script.usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+            script.sh "docker build -t $imageName ."
+            script.sh "echo $script.PASS | docker login -u $script.USER --password-stdin"
+            sh "docker push $imageName"
+        }
+    }
+
+    Splits buildDockerImage into separate groovy classes/steps
+    
+    */
+
     def buildDockerImage(String imageName){
         script.echo "building the docker image..."
         script.sh "docker build -t $imageName ."
@@ -25,3 +39,6 @@ class Docker implements Serializable {
         script.sh "docker push $imageName"
     }
 }
+
+
+
